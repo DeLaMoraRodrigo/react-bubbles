@@ -36,8 +36,8 @@ const Login = () => {
   }
 
   return (
-    <>
-      <h1>Welcome to the Bubble App!</h1>
+    <div className="loginDiv">
+      <h1>LOG IN</h1>
       <form onSubmit={handleSubmit}>
         <label>
           Username
@@ -59,7 +59,7 @@ const Login = () => {
         </label>
         <button>Log In</button>
       </form>
-    </>
+    </div>
   );
 };
 

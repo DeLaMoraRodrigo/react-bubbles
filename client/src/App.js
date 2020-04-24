@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter as Router, Route, NavLink } from "react-router-dom";
 
 import ProtectedRoute from "./components/ProtectedRoute";
+import HomePage from "./components/HomePage";
 import Login from "./components/Login";
 import BubblePage from "./components/BubblePage";
 import "./styles.scss";
@@ -22,11 +23,8 @@ function App() {
           </NavLink>
         </nav>
 
+        <Route exact path="/" component={HomePage} />
         <Route exact path="/login" component={Login} />
-        {/* 
-          Build a PrivateRoute component that will 
-          display BubblePage when you're authenticated 
-        */}
         <ProtectedRoute exact path="/bubble-page" component={BubblePage} />
       </div>
     </Router>

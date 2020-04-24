@@ -20,6 +20,75 @@ body,
   }
 }
 
+nav {
+  margin: 0 15px;
+  background-color: black;
+  width: 15%;
+  
+  h3 {
+    color: white;
+  }
+}
+
+.homeDiv {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .welcomeDiv {
+    display: flex;
+    justify-content: space-evenly;
+    margin-left: 25rem;
+
+    span {
+      font-size: 7rem;
+      margin-left: 5rem;
+      font-family: 'Luckiest Guy', cursive;
+    }
+  }
+
+  h1 {
+    font-size: 7rem;
+    margin-left: 30rem;
+    margin-bottom: 3rem;
+    font-family: 'Luckiest Guy', cursive;
+  }
+}
+
+.loginDiv {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-left: 30%;
+
+  h1 {
+    font-size: 5rem;
+    margin: 0;
+    font-family: 'Luckiest Guy', cursive;
+  }
+
+  form {
+    padding: 1rem;
+    border: 3px solid black;
+    margin-top: 3rem;
+
+    input {
+      width: 60%;
+    }
+
+    button {
+      margin-top: 1rem;
+    }
+  }
+}
+
+.addForm {
+  h2 {
+    margin-top: -15%;
+  }
+}
+
 .spacer {
   height: 100%;
 }
@@ -34,6 +103,8 @@ body,
   height: 100%;
   width: 300px;
   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.16), 0 3px 6px rgba(0, 0, 0, 0.23);
+  display: flex;
+  flex-direction: column-reverse;
 
   ul {
     list-style: none;

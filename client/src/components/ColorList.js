@@ -10,6 +10,7 @@ const ColorList = ({ colors, updateColors }) => {
   console.log(colors);
   const [editing, setEditing] = useState(false);
   const [colorToEdit, setColorToEdit] = useState(initialColor);
+  const [newColor, setNewColor] = useState(initialColor);
 
   const editColor = color => {
     setEditing(true);
@@ -43,6 +44,17 @@ const ColorList = ({ colors, updateColors }) => {
       })
   };
 
+  const addColor = () => {
+    axiosWithAuth()
+      .post(`/api/colors`, newColor)
+      .then(res => {
+        console.log({ res })
+      })
+      .catch(err => {
+        console.log({ err })
+      })
+  }
+
   return (
     <div className="colors-wrap">
       <p>colors</p>
@@ -51,11 +63,11 @@ const ColorList = ({ colors, updateColors }) => {
           <li key={color.color} onClick={() => editColor(color)}>
             <span>
               <span className="delete" onClick={e => {
-                    e.stopPropagation();
-                    deleteColor(color)
-                  }
-                }>
-                  x
+                e.stopPropagation();
+                deleteColor(color)
+              }
+              }>
+                x
               </span>{" "}
               {color.color}
             </span>
@@ -98,6 +110,30 @@ const ColorList = ({ colors, updateColors }) => {
       )}
       <div className="spacer" />
       {/* stretch - build another form here to add a color */}
+      <form onSubmit={addColor}>
+        <label>
+          color name:
+            <input
+            onChange={e =>
+              setNewColor({ ...newColor, color: e.target.value })
+            }
+            value={newColor.color}
+          />
+        </label>
+        <label>
+          hex code:
+            <input
+            onChange={e =>
+              setNewColor({
+                ...newColor,
+                code: { hex: e.target.value }
+              })
+            }
+            value={newColor.code.hex}
+          />
+        </label>
+        <button>Add Color</button>
+      </form>
     </div>
   );
 };

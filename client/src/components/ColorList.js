@@ -49,6 +49,7 @@ const ColorList = ({ colors, updateColors }) => {
       .post(`/api/colors`, newColor)
       .then(res => {
         console.log({ res })
+        setNewColor(initialColor)
       })
       .catch(err => {
         console.log({ err })
